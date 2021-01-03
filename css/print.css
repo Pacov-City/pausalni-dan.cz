@@ -1,0 +1,557 @@
+@charset "UTF-8";
+/**
+ *	Print
+ *
+ *	This file describes print view
+ */
+* {
+  text-shadow: none !important;
+  color: #000 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  height: auto !important;
+  width: auto !important;
+  font-size: 1.5rem;
+}
+
+a,
+a:visited {
+  text-decoration: underline;
+}
+
+a[href]:after {
+  content: " (" attr(href) ")";
+}
+
+abbr[title]:after {
+  content: " (" attr(title) ")";
+}
+
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+  content: "";
+}
+
+pre,
+blockquote {
+  border: 1px solid #999;
+  page-break-inside: avoid;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tr,
+img {
+  page-break-inside: avoid;
+}
+
+img {
+  max-width: 100% !important;
+}
+
+p,
+h2,
+h3 {
+  orphans: 3;
+  widows: 3;
+}
+
+h2,
+h3 {
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 2.2rem !important;
+}
+
+h2 {
+  font-size: 2.1rem !important;
+}
+
+h3 {
+  font-size: 1.9rem !important;
+}
+
+h4 {
+  font-size: 1.8rem !important;
+}
+
+select {
+  background: #fff !important;
+}
+
+.navbar {
+  display: none;
+}
+
+.table td,
+.table th {
+  background-color: #fff !important;
+}
+
+.btn > .caret,
+.dropup > .btn > .caret {
+  border-top-color: #000 !important;
+}
+
+.label {
+  border: 1px solid #000;
+}
+
+.table {
+  border-collapse: collapse !important;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #ddd !important;
+}
+
+/**
+ *	Theme variables
+ *
+ *	This file defines new variables and extends standards variables from Bootstrap.
+ */
+/**
+ *	Theme mixins
+ *
+ *	This file defines new mixins and extends standards mixins from Bootstrap.
+ */
+/*
+ *	Primary font family
+ */
+/*
+ *	Mixin for rem font sizing with fallback
+ *	@param {Number} [sizeValue] - Size of text
+ */
+/**
+ *	Reset parameters padding and margin
+ *	@param {Number} [value=0] - Set padding and margin to all sides
+ */
+/**
+ *	Clear on end / after end
+ */
+/**
+ *	Outline
+ */
+/**
+ *	Appearance
+ */
+/**
+* Flex
+*/
+/**
+ *  Transformations
+ */
+/**
+ *	Placeholder
+ */
+/**
+ *	Antialiasing
+ */
+/**
+ *
+ */
+/**
+ *
+ */
+/**
+ *
+ */
+/**
+ *
+ */
+/**
+ *	Theme functions
+ *
+ *	This file defines new mixins and extends standards mixins from Bootstrap.
+ */
+/*
+ *	Tachyoms
+ */
+/*
+ - Mixin for links non visited [href]
+ */
+/**
+ *	Theme icons
+ *
+ *	This file contains all used custom icons.
+ */
+@font-face {
+  font-family: 'pvs-icons';
+  src: url("/fonts/icons/pvs-icons.ttf?v=3") format("truetype"), url("/fonts/icons/pvs-icons.woff?v=3") format("woff"), url("/fonts/icons/pvs-icons.svg?v=3#icon") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+[class^='pvs-theme-icon-'],
+[class*=' pvs-theme-icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pvs-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pvs-theme-icon-person::before {
+  content: "";
+}
+
+.pvs-theme-icon-search::before {
+  content: "";
+}
+
+.pvs-theme-icon-dots-three-vertical::before {
+  content: "";
+}
+
+.pvs-theme-icon-pvs-logo::before {
+  content: "";
+}
+
+.pvs-theme-icon-pvs-logo-text::before {
+  content: "";
+}
+
+.pvs-theme-icon-accordion-arrow-down::before {
+  content: "";
+}
+
+.pvs-theme-icon-accordion-arrow-up::before {
+  content: "";
+}
+
+.pvs-theme-icon-accordion-arrow-left::before {
+  content: "";
+}
+
+.pvs-theme-icon-accordion-arrow-right::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-list-down::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-list-up::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-list-left::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-list-right::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-down::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-up::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-left::before {
+  content: "";
+}
+
+.pvs-theme-icon-arrow-right::before {
+  content: "";
+}
+
+.pvs-theme-icon-check::before {
+  content: "";
+}
+
+.pvs-theme-icon-external-link::before {
+  content: "";
+}
+
+.pvs-theme-icon-rss::before {
+  content: "";
+}
+
+.pvs-theme-icon-data-box::before {
+  content: "";
+}
+
+.pvs-theme-icon-pin::before {
+  content: "";
+}
+
+.pvs-theme-icon-calendar::before {
+  content: "";
+}
+
+.pvs-theme-icon-plus::before {
+  content: "";
+}
+
+.pvs-theme-icon-thin-plus::before {
+  content: "";
+}
+
+.pvs-theme-icon-alert::before {
+  content: "";
+}
+
+.pvs-theme-icon-mail::before {
+  content: "";
+}
+
+.pvs-theme-icon-close::before {
+  content: "";
+}
+
+.pvs-theme-icon-circle-plus::before {
+  content: "";
+}
+
+.pvs-theme-icon-circle-minus::before {
+  content: "";
+}
+
+.pvs-theme-icon-time::before {
+  content: "";
+}
+
+.pvs-theme-icon-star::before {
+  content: "";
+}
+
+.pvs-theme-icon-attachment::before {
+  content: "";
+}
+
+.pvs-theme-icon-message::before {
+  content: "";
+}
+
+.pvs-theme-icon-notification::before {
+  content: "";
+}
+
+.pvs-theme-icon-settings::before {
+  content: "";
+}
+
+.pvs-theme-icon-exit::before {
+  content: "";
+}
+
+.pvs-theme-icon-squares-grid::before {
+  content: "";
+}
+
+/**
+ *	Theme typography
+ *
+ *	This file contains @font-face declarations.
+ */
+/**
+ *	Roboto
+ */
+@font-face {
+  font-family: 'Roboto';
+  src: url("/fonts/roboto/roboto-thin.woff?v=1") format("woff"), url("/fonts/roboto/roboto-thin.ttf?v=1") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("/fonts/roboto/roboto-light.woff?v=1") format("woff"), url("/fonts/roboto/roboto-light.ttf?v=1") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("/fonts/roboto/roboto-regular.woff?v=1") format("woff"), url("/fonts/roboto/roboto-regular.ttf?v=1") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("/fonts/roboto/roboto-medium.woff?v=1") format("woff"), url("/fonts/roboto/roboto-medium.ttf?v=1") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("/fonts/roboto/roboto-bold.woff?v=1") format("woff"), url("/fonts/roboto/roboto-bold.ttf?v=1") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+html.pvs-theme {
+  position: relative;
+  min-width: 320px;
+  font-size: 10px;
+  min-height: 100%;
+}
+
+.pvs-theme iframe,
+.pvs-theme .js-disclaimer,
+.pvs-theme .footer__links,
+.pvs-theme .footer__common ul,
+.pvs-theme .debug-viewports,
+.pvs-theme .btn-login,
+.pvs-theme .lang-change__link,
+.pvs-theme .nav--primary,
+.pvs-theme .header--title,
+.pvs-theme .search-holder,
+.pvs-theme .nav--horizontal,
+.pvs-theme .guide__icon,
+.pvs-theme .guide__back-step,
+.pvs-theme .nav--vertical,
+.pvs-theme .guide h1,
+.pvs-theme .guide__link-holder,
+.pvs-theme .guide--mobile,
+.pvs-theme .nav__vertical--secondary,
+.pvs-theme .navigation h3,
+.pvs-theme .district-selection,
+.pvs-theme .select--secondary,
+.pvs-theme .tabs__list,
+.pvs-theme .date-picker,
+.pvs-theme .paginator,
+.pvs-theme .modal--municipality {
+  display: none !important;
+}
+.pvs-theme .container {
+  max-width: 100% !important;
+}
+.pvs-theme .header__logo {
+  display: none;
+}
+.pvs-theme .header__logo--print {
+  display: block;
+  width: 188px !important;
+  height: 102px !important;
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+.pvs-theme .infoline {
+  display: block;
+  padding: 20px 0 5px;
+}
+.pvs-theme .infoline br {
+  display: none;
+}
+.pvs-theme .header__inner {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+.pvs-theme .body__wrapper--hp .btn--more {
+  display: block;
+  padding-bottom: 10px;
+  font-size: 0;
+  line-height: 0;
+}
+.pvs-theme .body__wrapper--hp .btn--more[href]:after {
+  content: "(" attr(href) ")";
+  padding-bottom: 5px;
+  font-size: 15px;
+}
+.pvs-theme .breadcrumb {
+  display: block !important;
+  padding: 0;
+  margin: 0;
+  padding: 5px 0 10px;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+}
+.pvs-theme .breadcrumb li {
+  display: inline-block;
+}
+.pvs-theme .breadcrumb li + li::before {
+  content: '|';
+  padding: 0 10px;
+}
+.pvs-theme .breadcrumb .active {
+  text-decoration: none;
+}
+.pvs-theme .box__inner,
+.pvs-theme .tabs__side-title {
+  border-top: 1px solid rgba(112, 112, 112, 0.3);
+}
+.pvs-theme .mb-1 {
+  margin-bottom: 15px;
+}
+.pvs-theme .data-box {
+  margin: 15px 0;
+}
+.pvs-theme .data-box ul {
+  padding-left: 0;
+}
+.pvs-theme .data-box li {
+  list-style-type: none;
+}
+.pvs-theme .tabs__content-list {
+  margin-top: 5px;
+  padding-left: 0;
+}
+.pvs-theme .tabs__content-list li {
+  list-style-type: none;
+}
+.pvs-theme .tabs__content-table {
+  margin: 0;
+}
+.pvs-theme .tabs__content-col {
+  margin-bottom: 20px;
+}
+.pvs-theme .accordion {
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+}
+.pvs-theme .accordion:first-child {
+  padding-top: 20px;
+}
+.pvs-theme .accordion__link {
+  text-decoration: none !important;
+}
+.pvs-theme .accordion__list li {
+  list-style-type: disc;
+}
+.pvs-theme table {
+  margin: 20px 0;
+  text-align: left;
+  border-collapse: collapse;
+}
+.pvs-theme thead th {
+  padding-left: 1em;
+  padding-bottom: 0.3em;
+}
+.pvs-theme thead th:first-child {
+  padding-left: 0;
+}
+.pvs-theme tbody {
+  padding-top: 5px;
+}
+.pvs-theme tbody tr td {
+  padding: 10px 15px;
+}
+.pvs-theme tbody tr td:first-of-type {
+  padding-left: 0;
+}
+.pvs-theme tbody td,
+.pvs-theme tbody th {
+  border-bottom: 1px solid #ebebeb;
+}
+.pvs-theme tbody tr:last-child td,
+.pvs-theme tbody tr:last-child th {
+  border-bottom: none;
+}
+.pvs-theme tbody .td--before {
+  display: none;
+}
+.pvs-theme .footer__inner {
+  padding: 10px 0 20px;
+  border-top: 1px solid #000;
+}
