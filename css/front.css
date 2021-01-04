@@ -14218,3 +14218,7 @@ fieldset[disabled] .form-control + .control-label {
 .min-height--datepicker {
   min-height: 420px;
 }
+
+em {
+  font-weight: bold;
+}
