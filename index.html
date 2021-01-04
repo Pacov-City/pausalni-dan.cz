@@ -189,7 +189,8 @@
                 </div>
                 <div class="col-12 col-md-4">
                   <lable class="color-white">Rodné číslo*:</lable><br />
-                  <input id="rc" type="text" />
+				  <input id="rc" type="text" /><br />
+				  <small id="spatne-rc" class="color-red invisible">není platné rodné číslo</small>
                 </div>
                 <div class="col-12 col-md-4">
                   <lable class="color-white">Měsíc:</lable><br />
@@ -254,7 +255,7 @@
 				<h4>Zodpovědnost a licence</h4>
 				<p class="note">Informace na této stránce jsou poskytovány "jak jsou". Autor nenese žádnou zodpovědnost za případné škody. Kontakt: <a href="mailto:info@pausalni-dan.cz">info@pausalni-dan.cz</a></a> </p>
 				<p class="note">
-					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Toto dílo podléhá licenci <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Uveďte původ 4.0 Mezinárodní License</a>. Použité styly <a href="https://designsystem.gov.cz/">https://designsystem.gov.cz/</a>
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> Toto dílo podléhá licenci <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Uveďte původ 4.0 Mezinárodní License</a>. Použité styly <a href="https://designsystem.gov.cz/">https://designsystem.gov.cz/</a> <a href="https://www.zizka.ch/pages/programming/ruzne/rodne-cislo-identifikacni-cislo-rc-ico-kontrola-validace.html">Zdroj kontroly rodného čísla</a> 
 				</p>
 			</section>
           </div>
@@ -276,6 +277,12 @@
           });
         document.querySelector("#rc").addEventListener("keyup", (ev) => {
           document.querySelector("#vs").textContent = ev.target.value;
+		  const rc=ev.target.value
+		  if (!testRC(rc)){
+			showRcWarning()
+		  } else {
+			  hideRcWarning()
+		  }
           genqr();
         });
 
@@ -285,6 +292,14 @@
 		document.querySelector("#sel-mesic").value = defaultMonth
 		document.querySelector("#mesic").textContent = defaultMonth
       });
+
+	  function showRcWarning(){
+		document.querySelector("#spatne-rc").classList.remove("invisible")
+	  }
+
+	  function hideRcWarning(){
+		document.querySelector("#spatne-rc").classList.add("invisible")
+	  }
 
       function genqr() {
         const [_, ucet] = /2866-([0-9]+)\/0710/.exec(
@@ -299,6 +314,43 @@
 			document.querySelector("#qr").src = "";
 		}
       }
+
+	 // credit https://www.zizka.ch/pages/programming/ruzne/rodne-cislo-identifikacni-cislo-rc-ico-kontrola-validace.html
+	 function testRC(x,age){
+		if(!age) age = 0;
+		try
+		{
+			if(x.length == 0) return false;
+			if(x.length < 9) throw 1;
+			var year = parseInt(x.substr(0, 2), 10);
+			var month = parseInt(x.substr(2, 2), 10);
+			var day = parseInt( x.substr(4, 2), 10);
+			var ext = parseInt(x.substr(6, 3), 10);
+			if((x.length == 9) && (year < 54)) return true;
+			var c = 0;
+			if(x.length == 10) c = parseInt(x.substr(9, 1));
+			var m = parseInt( x.substr(0, 9)) % 11;
+			if(m == 10) m = 0;
+			if(m != c) throw 1;
+			year += (year < 54) ? 2000 : 1900;
+			if((month > 70) && (year > 2003)) month -= 70;
+			else if (month > 50) month -= 50;
+			else if ((month > 20) && (year > 2003)) month -= 20;
+			var d = new Date();
+			if((year + age) > d.getFullYear()) throw 1;
+			if(month == 0) throw 1;
+			if(month > 12) throw 1;
+			if(day == 0) throw 1;
+			if(day > 31) throw 1;
+		}
+		catch(e)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	  
     </script>
     <script src="js/vendor/jquery-3.2.0.min.js"></script>
     <script src="js/vendor/jquery.ba-throttle-debounce.min.js"></script>
