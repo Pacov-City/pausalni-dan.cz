@@ -132,15 +132,15 @@
 
             <section class="mp-section">
               <h2>Kdy oznámit?</h2>
-              <p>Oznámení musíte na Finanční úřad odeslat do <em>11.1.2021</em>.</p>
+              <p>Oznámení musíte na Finanční úřad odeslat do <em>10.1.2022</em>.</p>
             </section>
 
             <section class="mp-section">
               <h2>Kolik a kdy budete platit?</h2>
               <p>
-                Sazba paušální daně pro rok 2021 je <em>5 469 Kč za měsíc</em>.
+                Sazba paušální daně pro rok 2022 je <em> 5 994 Kč za měsíc</em>.
                 Zaplatit musíte vždy do <em>20. každého měsíce</em>. Termín
-                lednové platby je 20.2.2021.
+                lednové platby je 20.2.2022.
               </p>
             </section>
 
@@ -325,7 +325,7 @@
         const vs = document.querySelector("#vs").textContent;
         const mesic = document.querySelector("#mesic").textContent;
 		if (vs.length > 8){
-			let url = `https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountPrefix=2866&accountNumber=${ucet}&bankCode=0710&amount=5469&currency=CZK&vs=${vs}&date=2021-${mesic}-18`;
+			let url = `https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountPrefix=2866&accountNumber=${ucet}&bankCode=0710&amount=5994&currency=CZK&vs=${vs}&date=2021-${mesic}-18`;
         	document.querySelector("#qr").src = url;
 		} else {
 			document.querySelector("#qr").src = "";
