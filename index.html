@@ -95,7 +95,7 @@
               <h1>Paušální daň</h1>
               <p class="perex">
                 Tato stránka obsahuje základní praktické informace o paušální
-                dani na jednom místě.
+                dani na jednom místě. Finanční správa publikuje rozsáhlé detailní informace na <a href="https://www.financnisprava.cz/cs/dane/dane/dan-z-prijmu/pausalni-dan/informace-k-zakladnim-zmenam-v">svých stránkách.</a>
               </p>
             </section>
             <section class="mp-section">
@@ -132,15 +132,20 @@
 
             <section class="mp-section">
               <h2>Kdy oznámit?</h2>
-              <p>Oznámení musíte na Finanční úřad odeslat do <em>10.1.2022</em>.</p>
+              <p>Oznámení musíte na Finanční úřad odeslat do <em>10.1.2023</em>.</p>
             </section>
 
             <section class="mp-section">
               <h2>Kolik a kdy budete platit?</h2>
               <p>
-                Sazba paušální daně pro rok 2022 je <em> 5 994 Kč za měsíc</em>.
+                Sazba paušální daně pro rok 2023 závisí na pásmu, do kterého spadáte. 
+                <ul>
+                  <li>Pásmo I. - 6 208 Kč za měsíc - do 1 mil. Kč</li>
+                  <li>Pásmo II. - 16 000 Kč za měsíc - do 1,5 mil. Kč</li>
+                  <li>Pásmo III. - 26 000 Kč za měsíc - do 2 mil. Kč</li>
+                </ul> .
                 Zaplatit musíte vždy do <em>20. každého měsíce</em>. Termín
-                lednové platby je 20.2.2022.
+                lednové platby je 20.2.2023.
               </p>
             </section>
 
@@ -325,7 +330,7 @@
         const vs = document.querySelector("#vs").textContent;
         const mesic = document.querySelector("#mesic").textContent;
 		if (vs.length > 8){
-			let url = `https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountPrefix=2866&accountNumber=${ucet}&bankCode=0710&amount=5994&currency=CZK&vs=${vs}&date=2021-${mesic}-18`;
+			let url = `https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountPrefix=2866&accountNumber=${ucet}&bankCode=0710&amount=6208&currency=CZK&vs=${vs}&date=2023-${mesic}-18`;
         	document.querySelector("#qr").src = url;
 		} else {
 			document.querySelector("#qr").src = "";
