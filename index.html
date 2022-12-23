@@ -95,12 +95,12 @@
               <h1>Paušální daň</h1>
               <p class="perex">
                 Tato stránka obsahuje základní praktické informace o paušální
-                dani na jednom místě. Finanční správa publikuje rozsáhlé detailní informace na <a href="https://www.financnisprava.cz/cs/dane/dane/dan-z-prijmu/pausalni-dan/informace-k-zakladnim-zmenam-v">svých stránkách.</a>
+                dani na jednom místě. Pro rok 2023 Finanční správa publikuje rozsáhlé detailní informace na <a href="https://www.financnisprava.cz/cs/dane/dane/dan-z-prijmu/pausalni-dan/informace-k-zakladnim-zmenam-v">svých stránkách.</a>
               </p>
             </section>
             <section class="mp-section">
 			  <h2>Jak a kde oznámit?</h2>
-			  <p>Do režimu paušální ďaně můžete přejít, pokud je váš příjem menší než 1 mil. korun za rok 
+			  <p>Do režimu paušální ďaně můžete přejít, pokud je váš příjem menší než 2 mil. korun za rok 
 				  a příjmy výhradně z podnikání (žádné příjmy z dohody, nájmů apod.)</p>
               <p>
                 Přechod do režimu paušální daně musíte oznámit Finančnímu úřadu. Připravit oznámení můžete pomocí
@@ -125,9 +125,6 @@
 			    <p>Oznámení můžete po vyplnění rovnou 
 					odeslat pomocí datové schránky přímo, nebo vytisknout a podepsané doručit na příslušný finanční úřad.</p>
 
-				<p><em>POZOR</em> - Před osobním doručením formuláře na Finanční úřad se přesvědčte, zda je osobní podání 
-					na vašem úřadu možné. Z důvodu opatření proti Covid19 je provoz úřadů pro veřejnost výrazně omezem 
-					a informace o omezeních nejsou na první pohled nikde zobrazeny.</p>
             </section>
 
             <section class="mp-section">
@@ -138,12 +135,14 @@
             <section class="mp-section">
               <h2>Kolik a kdy budete platit?</h2>
               <p>
-                Sazba paušální daně pro rok 2023 závisí na pásmu, do kterého spadáte. 
+                Sazba paušální daně pro rok 2023 závisí na pásmu, do kterého spadáte.
+                </p>
                 <ul>
                   <li>Pásmo I. - 6 208 Kč za měsíc - do 1 mil. Kč</li>
                   <li>Pásmo II. - 16 000 Kč za měsíc - do 1,5 mil. Kč</li>
                   <li>Pásmo III. - 26 000 Kč za měsíc - do 2 mil. Kč</li>
-                </ul> .
+                </ul>
+                <p>
                 Zaplatit musíte vždy do <em>20. každého měsíce</em>. Termín
                 lednové platby je 20.2.2023.
               </p>
@@ -152,7 +151,7 @@
             <section class="mp-section">
               <h2>Jak platit?</h2>
               <p>
-                Paušální daň plaťte na účet FÚ pro váš kraj s předčíslím 2866 a
+                Paušální daň plaťte na účet FÚ pro váš kraj s předčíslím 2866 a 
                 jako variabilní symbol použijte vaše rodné číslo. Konkrétní
 				údaje pro vás můžete zjistit ve formuláři níže. Když si vyberete kraj, 
 				kam příslušíte a vyplníte rodné číslo a měsíc, ve kterém chcete platit paušání daň, 
@@ -208,12 +207,12 @@
                     </option>
                   </select>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-3">
                   <lable class="color-white">Rodné číslo*:</lable><br />
 				  <input id="rc" type="text" /><br />
 				  <small id="spatne-rc" class="color-red invisible">není platné rodné číslo</small>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-2">
                   <lable class="color-white">Měsíc:</lable><br />
                   <select id="sel-mesic">
                     <option value="01">leden</option>
@@ -230,6 +229,15 @@
                     <option value="12">prosinec</option>
                   </select>
                 </div>
+                <div class="col-12 col-md-3">
+                  <lable class="color-white">Pásmo:</lable><br />
+                  <select id="sel-pasmo">
+                    <option value="6208" selected>Pásmo I. - 6 208 Kč</option>
+                    <option value="16000">Pásmo II. - 16 000 Kč</option>
+                    <option value="26000">Pásmo III. - 20 000 Kč</option>
+                  </select>
+                </div>
+
               </div>
               <div class="row mp-background--blue pt-2 pb-2">
                 <div class="col-12 col-md-6 color-white">
@@ -245,6 +253,10 @@
                     <tr>
                       <td class="color-white">Měsíc:</td>
                       <td class="color-white" id="mesic"></td>
+                    </tr>
+                    <tr>
+                      <td class="color-white">Částka:</td>
+                      <td class="color-white" id="castka"></td>
                     </tr>
                   </table>
                 </div>
@@ -297,6 +309,13 @@
             document.querySelector("#mesic").textContent = ev.target.value;
             genqr();
           });
+          document
+          .querySelector("#sel-pasmo")
+          .addEventListener("change", (ev) => {
+            document.querySelector("#castka").textContent = ev.target.value;
+            genqr();
+          });
+  
         document.querySelector("#rc").addEventListener("keyup", (ev) => {
           document.querySelector("#vs").textContent = ev.target.value;
 		  const rc=ev.target.value
@@ -329,8 +348,10 @@
         );
         const vs = document.querySelector("#vs").textContent;
         const mesic = document.querySelector("#mesic").textContent;
+        const castka = document.querySelector("#castka").textContent;
+
 		if (vs.length > 8){
-			let url = `https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountPrefix=2866&accountNumber=${ucet}&bankCode=0710&amount=6208&currency=CZK&vs=${vs}&date=2023-${mesic}-18`;
+			let url = `https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountPrefix=2866&accountNumber=${ucet}&bankCode=0710&amount=${castka}&currency=CZK&vs=${vs}&date=2023-${mesic}-18`;
         	document.querySelector("#qr").src = url;
 		} else {
 			document.querySelector("#qr").src = "";
